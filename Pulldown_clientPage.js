@@ -31,6 +31,9 @@ class Pulldown_clientPage extends Pulldown {
             }
         });
         parent_section.insertBefore(wrapped_buttonText, parent_section.firstChild);
+        if (this.id === "人事管理") {
+            wrapped_pulldown_menu.style.left = "30%";
+        }
 
         return wrapped_pulldown_menu;
     }
@@ -42,12 +45,18 @@ class Pulldown_clientPage extends Pulldown {
             const choice = document.createElement("li");
             choice.textContent = key;
             /* メニュークリックで従業員選択ポップアップ出現 */
-            choice.addEventListener("click", function () {
-                const d = new Dialog_employee(key, menu, pairList[key]);
-                d.update(d.assemble());
-                const modalDialog = document.getElementById(d.id);
-                modalDialog.showModal();
-            });
+            if (key === "従業員名簿") {
+                choice.addEventListener("click", function () {
+                    window.location.href = pairList[key];
+                });
+            } else {
+                choice.addEventListener("click", function () {
+                    const d = new Dialog_employee(key, menu, pairList[key]);
+                    d.update(d.assemble());
+                    const modalDialog = document.getElementById(d.id);
+                    modalDialog.showModal();
+                });
+            }
             menu.appendChild(choice);
         });
         return menu;

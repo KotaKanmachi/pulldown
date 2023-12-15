@@ -1,0 +1,36 @@
+.ql-editor app-frame__non-view {
+    padding: 30px 30px !important;
+    font-size: 24px !important;
+}
+
+.ql-editor app-frame__non-view {
+    padding: 0px !important;
+
+}
+.ql-editor a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.nkr-pulldownMenu{
+	background:#f0f8ff;
+	border: 1px dotted #808080 ;
+	padding-right:50px;
+
+}
+.nkr-pulldownMenu li{
+	border-bottom: 1px dotted #808080 ;
+	padding-left:20px;
+}
+.nkr-pulldownMenu  li a {
+	display:block;
+	font-weight:bold;
+
+	color:#333;
+	text-decoration:none;
+}
+.nkr-pulldownMenu li:hover{
+	background-color:#3a9ed8 ;/*rgba(0,0,0,0.5);*/
+	color:#f9cf45;
+}

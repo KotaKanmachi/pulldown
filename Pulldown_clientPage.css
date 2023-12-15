@@ -16,3 +16,8 @@
   content: none;
   padding-left: 0%;
 }
+
+.ql-editor app-frame__non-view {
+  padding: 30px 30px !important;
+  font-size: 24px !important;
+}

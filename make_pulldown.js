@@ -7,11 +7,11 @@ function make_pulldown(pairList, sectionNum, pulldownId) {
 }
   
 let COUNTER = 1; //非同期処理の回数カウンター
-const INTERVAL_ID = setInterval(main, 100); //非同期処理の設定と削除用変数
+const INTERVAL_ID = setInterval(main_pulldown, 100); //非同期処理の設定と削除用変数
 
-async function main() {
+async function main_pulldown() {
     /* 社員番号と該当するレコードを探索。非同期処理。 */
-    const pairList = {
+    const procedurePairList = {
         "保険加入": "https://kviewer.kintoneapp.com/private/74ca70624657a0fe74201410b34cdb20919e924e60dfd688003a1b70e4d3f4ee",
         "扶養追加": "https://kviewer.kintoneapp.com/private/8a2d1f589a6abcf369c268cd19cbe4bdda498c1e7812f57429b1e0114c027aad",
         "扶養削除": "https://kviewer.kintoneapp.com/private/8a2d1f589a6abcf369c268cd19cbe4bdda498c1e7812f57429b1e0114c027aad",
@@ -24,9 +24,24 @@ async function main() {
         "被保険者証再交付": "#",
         "限度額適用認定証": "#"
     }
+    const personnnelManagementPairList = {
+        "従業員名簿": "#",
+        "給与・賞与履歴": "#",
+        "職位履歴": "#",
+        "雇用条件履歴": "#",
+        "懲戒履歴": "#",
+        "事故・問題履歴": "#",
+        "休業・休職履歴": "#",
+        "育休・介護履歴": "#",
+        "労災履歴": "#",
+        "死亡履歴": "#",
+        "アレルギー登録歴": "#",
+        "アレルギー発症歴": "#"
+    }
     try {
-        const targetDom = make_pulldown(pairList, 4, "その他手続き");
-        if (targetDom === undefined) {
+        const procedureTargetDom = make_pulldown(procedurePairList, 4, "その他手続き");
+        const personnnelManagementTargetDom = make_pulldown(personnnelManagementPairList, 5, "人事管理");
+        if (procedureTargetDom === undefined || personnnelManagementTargetDom === undefined) {
             throw new Error('loading error');
         }
         clearInterval(INTERVAL_ID); //非同期処理を削除
