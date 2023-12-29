@@ -58,7 +58,7 @@ class Pulldown_clientPage extends Pulldown {
         });
       } else {
         choice.addEventListener("click", function () {
-          const d = new Dialog_employee(key, menu, pairList[key]);
+          const d = new Dialog_employeePage(key, menu, pairList[key]);
           d.update(d.assemble());
           const modalDialog = document.getElementById(d.id);
           modalDialog.showModal();
