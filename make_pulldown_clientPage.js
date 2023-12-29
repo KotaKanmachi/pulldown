@@ -64,7 +64,7 @@ async function main_pulldown() {
   } catch (e) {
     console.error("make pulldown error: ", e.message);
   }
-  console.log("try: ", PULLDOWN_COUNTER++);
+  console.log("make pulldown try: ", PULLDOWN_COUNTER++);
   /* カウンターが一定回数を超えたら非同期処理を停止 */
   if (PULLDOWN_COUNTER > 30) {
     clearInterval(INTERVAL_ID);
