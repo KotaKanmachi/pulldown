@@ -42,6 +42,11 @@ async function main_pulldown() {
     "アレルギー登録歴": "#",
     "アレルギー発症歴": "#",
   };
+  /* cubicのプルダウンリストとそのURLを登録 */
+  const cubicPairList = {
+    "CUBIC（採用）": "https://916163bf.form.kintoneapp.com/public/8ad3d4076fa45390de675d14925c967bb5eb4170dac3b5c47bfe5f1ea3c12b70",
+    "CUBIC（現有社員）": "https://916163bf.form.kintoneapp.com/public/4b34e11f3b7787605e693b90732747868ef47be53364ec111d1485eb6e15de3f",
+  }
   try {
     const procedureTargetDom = make_pulldown(
       procedurePairList,
@@ -53,9 +58,15 @@ async function main_pulldown() {
       5,
       "人事管理"
     );
+    const cubicTargetDom = make_pulldown(
+      cubicPairList,
+      15,
+      "cubic"
+    );
     if (
       procedureTargetDom === undefined ||
-      personnnelManagementTargetDom === undefined
+      personnnelManagementTargetDom === undefined ||
+      cubicTargetDom === undefined
     ) {
       throw new Error("loading error");
     }

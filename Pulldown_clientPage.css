@@ -1,11 +1,9 @@
 .nkr-pulldownMenu {
   position: absolute;
   left: 20%;
-  top: 12%;
+  top: 8%;
   width: 18%;
   z-index: 10000;
-  border: solid 2px;
-  background-color: white;
 }
 
 .nkr-pulldownMenu ul{
@@ -15,9 +13,4 @@
 .ql-editor ul>li:before {
   content: none;
   padding-left: 0%;
-}
-
-.ql-editor app-frame__non-view {
-  padding: 30px 30px !important;
-  font-size: 24px !important;
 }

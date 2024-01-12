@@ -23,27 +23,25 @@ class Pulldown_clientPage extends Pulldown {
       PULLDOWN_BUTTON_CLASSNAME,
       this.child_target
     );
+    const toggleMenu = function () {
+      wrapped_pulldown_menu.style.display =
+        wrapped_pulldown_menu.style.display === "block" ? "none" : "block";
+    };
     /* プルダウン出現のイベント付与 */
     wrapped_buttonText.addEventListener("click", function (e) {
-      const flag = wrapped_pulldown_menu.style.display;
-      const pulldowns = document.getElementsByClassName("nkr-pulldownMenu");
-      for (let i = 0; i < pulldowns.length; i++) {
-        pulldowns[i].style.display = "none";
-      }
       e.stopPropagation();
-      wrapped_pulldown_menu.style.display = flag === "block" ? "none" : "block";
+      toggleMenu();
     });
     document.addEventListener("click", function (event) {
       if (!wrapped_pulldown_menu.contains(event.target)) {
         wrapped_pulldown_menu.style.display = "none";
       }
     });
-    
     parent_section.insertBefore(wrapped_buttonText, parent_section.firstChild);
     if (this.id === "人事管理") {
-      wrapped_pulldown_menu.style.left = "70%";
+      wrapped_pulldown_menu.style.left = "30%";
     } else if (this.id === "cubic") {
-      wrapped_pulldown_menu.style.left = "60%";
+      wrapped_pulldown_menu.style.left = "80%";
     }
 
     return wrapped_pulldown_menu;
@@ -56,11 +54,7 @@ class Pulldown_clientPage extends Pulldown {
       const choice = document.createElement("li");
       choice.textContent = key;
       /* メニュークリックで従業員選択ポップアップ出現 */
-      if (
-        key === "従業員名簿" ||
-        key === "CUBIC（採用）" ||
-        key === "CUBIC（現有社員）"
-      ) {
+      if (key === "従業員名簿" || key === "CUBIC（採用）" || key === "CUBIC（現有社員）") {
         choice.addEventListener("click", function () {
           window.location.href = pairList[key];
         });
