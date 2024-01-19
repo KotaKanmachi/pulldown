@@ -17,20 +17,24 @@
 	background:#f0f8ff;
 	border: 1px dotted #808080 ;
 	padding-right:50px;
-
 }
-.nkr-pulldownMenu li{
+
+.nkr-dialog{
+	background:#f0f8ff;
+	padding-right:50px;
+}
+.nkr-pulldownMenu li, .nkr-dialog li{
 	border-bottom: 1px dotted #808080 ;
 	padding-left:20px;
 }
-.nkr-pulldownMenu  li a {
+.nkr-pulldownMenu  li a , .nkr-dialog li a{
 	display:block;
 	font-weight:bold;
 
 	color:#333;
 	text-decoration:none;
 }
-.nkr-pulldownMenu li:hover{
+.nkr-pulldownMenu li:hover, .nkr-dialog li:hover{
 	background-color:#3a9ed8 ;/*rgba(0,0,0,0.5);*/
 	color:#f9cf45;
 }

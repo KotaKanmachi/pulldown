@@ -38,14 +38,15 @@ class Pulldown_clientPage extends Pulldown {
         wrapped_pulldown_menu.style.display = "none";
       }
     });
-    
+
     parent_section.insertBefore(wrapped_buttonText, parent_section.firstChild);
     if (this.id === "人事管理") {
       wrapped_pulldown_menu.style.left = "70%";
     } else if (this.id === "cubic") {
       wrapped_pulldown_menu.style.left = "60%";
+    } else if (this.id === "入社連絡") {
+      wrapped_pulldown_menu.style.left = "0%";
     }
-
     return wrapped_pulldown_menu;
   }
   make_pulldown_menu() {
@@ -59,19 +60,31 @@ class Pulldown_clientPage extends Pulldown {
       if (
         key === "従業員名簿" ||
         key === "CUBIC（採用）" ||
-        key === "CUBIC（現有社員）"
+        key === "CUBIC（現有社員）" ||
+        key === "本人入力データ確認" ||
+        key === "雇用契約書作成" ||
+        key === "入社連絡(追加/修正)" ||
+        key === "社員登録・入社連絡"
       ) {
         choice.addEventListener("click", function () {
-          window.location.href = pairList[key];
+          //            window.location.href = pairList[key];                        /*2023/01/14*/
+          const newWindow = window.open("about:blank"); /*2023/01/14*/
+          if (newWindow) {
+            console.log("object exist");
+            newWindow.location.href = pairList[key];
+          } else {
+            console.log("object not exist");
+          }
         });
       } else {
         choice.addEventListener("click", function () {
-          const d = new Dialog_employeePage(key, menu, pairList[key]);
+          const d = new Dialog_clientPage(key, menu, pairList[key]);
           d.update(d.assemble());
           const modalDialog = document.getElementById(d.id);
           modalDialog.showModal();
         });
       }
+
       menu.appendChild(choice);
     });
     return menu;
